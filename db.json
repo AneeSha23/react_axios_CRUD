@@ -1,0 +1,19 @@
+{
+  "posts": [
+    {
+      "id": 4,
+      "title": "Blue Umbrella",
+      "author": "Ruskin Bond"
+    },
+    {
+      "title": "Stuart Little",
+      "author": "E B White",
+      "id": 5
+    },
+    {
+      "title": "Harry Potter",
+      "author": "J K Rowling",
+      "id": 6
+    }
+  ]
+}

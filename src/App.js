@@ -1,23 +1,40 @@
 import logo from './logo.svg';
 import './App.css';
+import { Header } from './Pages/Navbar';
+import {createBrowserRouter, Outlet, RouterProvider} from 'react-router-dom'
+import { GetAll } from './Pages/GetAll';
+import { GetSingle } from './Pages/GetSingle';
+import { AddPost } from './Pages/AddPost';
+import { EditPost } from './Pages/EditPost';
+import { Container } from 'react-bootstrap';
 
 function App() {
+
+  const Layout = ()=>{
+    return(
+    <div>
+      <Header/>
+      <Container>
+      <Outlet/>
+      </Container>
+    
+    </div>
+    )
+  }
+
+  const router = createBrowserRouter([
+    {path:'/',element:<Layout/>, children:[
+      {path:'/', element:<GetAll/>},
+      {path:'/single/:id', element:<GetSingle/>},
+      {path:'/add', element:<AddPost/>},
+      {path:'/edit/:id', element:<EditPost/>}
+    ]}
+    
+  ])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <RouterProvider router={router}/>
     </div>
   );
 }
